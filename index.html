@@ -100,22 +100,12 @@
     <script>
         // import { Analytics } from "@vercel/analytics/react"
 
-        const proxyserver = "https://v-proxy-psi.vercel.app/api"
-        
-        const tradleUrl = "https://tradle.net/data.csv;"
-        
-        tradleHeaders = {
-            "Referer": "https://tradle.net/"
-        }
-
-        reader.onload = function(e) {
-        const text = e.target.result;
-        const rows = text.split('\n').map(row => row.split(','));
-        console.log(JSON.stringify(rows, null, 2));
-        };
+        const wordleTodayUrl = "https://v-proxy-psi.vercel.app/wordle/today";
+        const wordleTomorrowUrl = "https://v-proxy-psi.vercel.app/wordle/tomorrow";
+        const tradleUrl = "https://v-proxy-psi.vercel.app/tradle";
 
         // wordle today
-        fetchData(proxyserver, 'GET', {})
+        fetchData(wordleTodayUrl, 'GET', {})
         .then(result => {
             if (result) {
             console.log('Received data:', result);
@@ -125,8 +115,19 @@
             console.log('Data retrieval failed.');
             }
         });
+        // wordle tomorrow
+        fetchData(wordleTomorrowUrl, 'GET', {})
+        .then(result => {
+            if (result) {
+            console.log('Received data:', result);
+            // Process the data here
+            document.getElementById('wordle-tomorrow').innerHTML = result['solution'];
+            } else {
+            console.log('Data retrieval failed.');
+            }
+        });
         // tradle today
-        fetchData(tradleUrl, 'GET', tradleHeaders)
+        fetchData(tradleUrl, 'GET', {})
         .then(result => {
             if (result) {
             console.log('Received data:', result);
