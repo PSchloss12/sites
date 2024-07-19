@@ -15,12 +15,12 @@ const todayWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateToday}.json`
 const tomorrowWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateTomorrow}.json`;
 const tradleUrl = "https://tradle.net/data.csv";
 
-const reader = new FileReader();
-reader.onload = function(e) {
-    const text = e.target.result;
-    const rows = text.split('\n').map(row => row.split(','));
-    console.log(JSON.stringify(rows, null, 2));
-};
+// const reader = new FileReader();
+// reader.onload = function(e) {
+//     const text = e.target.result;
+//     const rows = text.split('\n').map(row => row.split(','));
+//     console.log(JSON.stringify(rows, null, 2));
+// };
 // const reader = new FileReader();
 
 // Define a route that will act as a proxy
