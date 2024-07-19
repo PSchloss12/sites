@@ -104,36 +104,19 @@
         const wordleTomorrowUrl = "https://v-proxy-psi.vercel.app/wordle/tomorrow";
         const tradleUrl = "https://v-proxy-psi.vercel.app/tradle";
 
-        // wordle today
-        fetchData(wordleTodayUrl, 'GET', {})
+        const proxyserver = "https://v-proxy-psi.vercel.app/api";
+
+        const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+
+        fetchData(proxyserver, 'GET', {})
         .then(result => {
             if (result) {
             console.log('Received data:', result);
             // Process the data here
-            document.getElementById('wordle-today').innerHTML = result['solution'];
-            } else {
-            console.log('Data retrieval failed.');
-            }
-        });
-        // wordle tomorrow
-        fetchData(wordleTomorrowUrl, 'GET', {})
-        .then(result => {
-            if (result) {
-            console.log('Received data:', result);
-            // Process the data here
-            document.getElementById('wordle-tomorrow').innerHTML = result['solution'];
-            } else {
-            console.log('Data retrieval failed.');
-            }
-        });
-        // tradle today
-        fetchData(tradleUrl, 'GET', {})
-        .then(result => {
-            if (result) {
-            console.log('Received data:', result);
-            // Process the data here
-            // document.getElementById('wordle-today').innerHTML = result['solution'];
-            reader.readAsText(result);
+            document.getElementById('wordle-today').innerHTML = result[0];
+            document.getElementById('wordle-tomorrow').innerHTML = result[1];
+            document.getElementById('tradle-today').innerHTML= regionNames.of(result[2].toUpperCase())
+            document.getElementById('tradle-tomorrow').innerHTML= regionNames.of(result[3].toUpperCase())
             } else {
             console.log('Data retrieval failed.');
             }
