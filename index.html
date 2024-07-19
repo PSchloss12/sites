@@ -98,27 +98,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
-        import { Analytics } from "@vercel/analytics/react"
-        // const today = new Date();
-        // const tomorrow = new Date(today);
-        // tomorrow.setDate(tomorrow.getDate() + 1);
-        // const dateTomorrow = tomorrow.toISOString().split('T')[0];
-        // const dateToday = today.toISOString().split('T')[0];
-
-        // const todayWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateToday}.json`;
-        // const tomorrowWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateTomorrow}.json`;
-        
-        // wordleHeaders = {
-        //     "Accept": "*/*",
-        //     "Accept-Encoding": "gzip, deflate, br, zstd",
-        //     "Accept-Language": "en-US,en;q=0.9",
-        //     "Content-Type": "application/x-www-form-urlencoded",
-        //     "Host": "www.nytimes.com",
-        //     "Referer": "https://www.nytimes.com/games/wordle/index.html",
-        //     "Sec-Fetch-Dest": "empty",
-        //     "Sec-Fetch-Mode": "cors",
-        //     "Sec-Fetch-Site": "same-origin",
-        //     }
+        // import { Analytics } from "@vercel/analytics/react"
 
         const proxyserver = "https://v-proxy-psi.vercel.app/api"
         
@@ -128,6 +108,12 @@
             "Referer": "https://tradle.net/"
         }
 
+        reader.onload = function(e) {
+        const text = e.target.result;
+        const rows = text.split('\n').map(row => row.split(','));
+        console.log(JSON.stringify(rows, null, 2));
+        };
+
         // wordle today
         fetchData(proxyserver, 'GET', {})
         .then(result => {
@@ -135,6 +121,18 @@
             console.log('Received data:', result);
             // Process the data here
             document.getElementById('wordle-today').innerHTML = result['solution'];
+            } else {
+            console.log('Data retrieval failed.');
+            }
+        });
+        // tradle today
+        fetchData(tradleUrl, 'GET', tradleHeaders)
+        .then(result => {
+            if (result) {
+            console.log('Received data:', result);
+            // Process the data here
+            // document.getElementById('wordle-today').innerHTML = result['solution'];
+            reader.readAsText(result);
             } else {
             console.log('Data retrieval failed.');
             }
