@@ -133,7 +133,7 @@
             if (result) {
             console.log('Received data:', result);
             // Process the data here
-            document.getElementById('wordle-today').innerHTML = result;
+            document.getElementById('wordle-today').innerHTML = result['solution'];
             } else {
             console.log('Data retrieval failed.');
             }
