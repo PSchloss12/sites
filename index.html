@@ -50,7 +50,7 @@
                     <div class="col-4">
                         <h3>Wordle</h3>
                         <br>
-                        <p id="wordle-today"></p>
+                        <p id="wordle-today">::</p>
                     </div>
                     <div class="col-4">
                         <h3>Tradle</h3>
@@ -118,6 +118,8 @@
         //     "Sec-Fetch-Mode": "cors",
         //     "Sec-Fetch-Site": "same-origin",
         //     }
+
+        const proxyserver = "https://v-proxy-psi.vercel.app/api"
         
         const tradleUrl = "https://tradle.net/data.csv;"
         
@@ -126,7 +128,7 @@
         }
 
         // wordle today
-        fetchData(todayWordleUrl, 'GET', {})
+        fetchData(proxyserver, 'GET', {})
         .then(result => {
             if (result) {
             console.log('Received data:', result);
