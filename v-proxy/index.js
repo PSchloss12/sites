@@ -46,69 +46,7 @@ app.use((req, res, next) => {
     next();
 });
 // Define a route that will act as a proxy
-app.get('/wordle/today', async (req, res) => {
-    try {
-        const response = await axios.get(todayWordleUrl, {
-            headers: {
-                "Accept": "*/*",
-                "Accept-Encoding": "gzip, deflate, br, zstd",
-                "Accept-Language": "en-US,en;q=0.9",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Host": "www.nytimes.com",
-                "Referer": "https://www.nytimes.com/games/wordle/index.html",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                }
-        });
-        res.json(response.data);
-    } catch(error) {
-        console.error('Error fetching data:',error);
-        res.status(500).send('Internal Server Error');
-    }
-});
-app.get('/wordle/tomorrow', async (req, res) => {
-    try {
-        const response = await axios.get(tomorrowWordleUrl, {
-            headers: {
-                "Accept": "*/*",
-                "Accept-Encoding": "gzip, deflate, br, zstd",
-                "Accept-Language": "en-US,en;q=0.9",
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Host": "www.nytimes.com",
-                "Referer": "https://www.nytimes.com/games/wordle/index.html",
-                "Sec-Fetch-Dest": "empty",
-                "Sec-Fetch-Mode": "cors",
-                "Sec-Fetch-Site": "same-origin",
-                }
-        });
-        res.json(response.data);
-    } catch(error) {
-        console.error('Error fetching data:',error);
-        res.status(500).send('Internal Server Error');
-    }
-});
-app.get('/tradle', async (req, res) => {
-    try {
-        const response = await axios.get(tradleUrl, {
-            headers: {
-                "Referer": "https://tradle.net/"
-                }
-        });
-        res.json(response.data);
-    } catch(error) {
-        console.error('Error fetching data:',error);
-        res.status(500).send('Internal Server Error');
-    }
-});
-
-app.get('/test', (req,res) => {
-    res.json({message: "Test endpoint hit"});
-})
-app.get('/', (req,res) => {
-    res.json({message: "Home endpoint hit"});
-})
-app.get('/api', async (req,res) => {
+app.get('/wordle', async (req, res) => {
     try {
         const todayWordleResponse = await axios.get(todayWordleUrl, {
             headers: {
@@ -136,47 +74,101 @@ app.get('/api', async (req,res) => {
                 "Sec-Fetch-Site": "same-origin",
                 }
         });
+        res.json({"wordleToday" : todayWordleResponse.data['solution'],
+            "wordleTomorrow" : tomorrowWordleResponse.data['solution'],
+        });
+    } catch(error) {
+        console.error('Error fetching data:',error);
+        res.status(500).send(`Internal Server Error: ${error}`);
+    }
+});
+app.get('/tradle', async (req, res) => {
+    try {
         const tradleResponse = await axios.get(tradleUrl, {
             headers: {
                 "Referer": "https://tradle.net/"
                 }
         });
         let index = tradleResponse.data.search(dateToday);
-        const miniRes = await axios.get(todayWordleUrl, {
+        res.json({
+            "tradleToday" : tradleResponse.data.slice(index+11, index+13),
+            "tradleTomorrow" : tradleResponse.data.slice(index+26, index+28),
+        });
+    } catch(error) {
+        console.error('Error fetching data:',error);
+        res.status(500).send(`Internal Server Error: ${error}`);
+    }
+});
+
+app.get('/test', (req,res) => {
+    res.json({message: "Test endpoint hit"});
+})
+app.get('/', (req,res) => {
+    res.json({message: "Home endpoint hit"});
+})
+app.get('/mini', async (req,res) => {
+    try {
+        const miniRes = await axios.get(miniUrl, {
             headers: {
                 "Accept": "*/*",
                 "Accept-Encoding": "gzip, deflate, br, zstd",
                 "Accept-Language": "en-US,en;q=0.9",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Host": "www.nytimes.com",
-                "Referer": `${miniUrl}`,
+                "Referer": "https://www.nytimes.com/crosswords/game/mini",
                 "Sec-Fetch-Dest": "empty",
                 "Sec-Fetch-Mode": "cors",
                 "Sec-Fetch-Site": "same-origin",
             }
         });
-        miniBoard = miniRes.data['body'][0]['board'].replaceall('\"','"');
+        miniBoard = miniRes.data['body'][0]['board'];
         miniCells = miniRes.data['body'][0]['cells'];
-        miniAnswers = [];
-        for (dict in miniCells){
-            if (dict.haskey('answer')){
-                miniAnswers.push(dict['answer'])
-            } else {
-                miniAnswers.push('')
-            }
-        }
+        // miniAnswers = [];
+        // for (dict in miniCells){
+        //     if (dict['answer']){
+        //         miniAnswers.push(dict['answer']);
+        //     } else {
+        //         miniAnswers.push('');
+        //     }
+        // }
         res.json({
-            "wordleToday" : todayWordleResponse.data['solution'],
-            "wordleTomorrow" : tomorrowWordleResponse.data['solution'],
-            "tradleToday" : tradleResponse.data.slice(index+11, index+13),
-            "tradleTomorrow" : tradleResponse.data.slice(index+26, index+28),
-            "miniAnswers" : miniAnswers,
+            "miniAnswers" : miniCells,
             "miniBoard" : miniBoard,
+        });
+        // res.json({"res":miniRes.data});
+
+    } catch(error) {
+        console.error('Error fetching data:',error);
+        res.status(500).send(`Internal Server Error: ${error}`);
+    }
+})
+app.get('/bandle', async (req,res) => {
+    try {
+        const res = await axios.get(bandleUrl, {
+            headers: {
+                // ":authority": "sound.bandle.app",
+                // ":scheme": "https",
+                "accept": "*/*",
+                "accept-encoding": "gzip, deflate, br, zstd",
+                "accept-language": "en-US,en;q=0.5",
+                "origin": "https://bandle.app",
+                "priority": "u=1, i",
+                "referer": "https://bandle.app/",
+                "sec-ch-ua-platform": "\"Windows\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+                // "sec-gpc": "1",
+              }
+        });
+        desalt = decrypt(bandleSalt, res.data);
+        res.json({
+            "bandle" : desalt,
         });
 
     } catch(error) {
         console.error('Error fetching data:',error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send(`Internal Server Error: ${error}`);
     }
 })
 
