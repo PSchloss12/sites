@@ -6,6 +6,28 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(cors());
 
+function formatDate(date) {
+    let d = new Date(date);
+    let month = (d.getMonth() + 1).toString();
+    let day = d.getDate().toString();
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+    return [d.getFullYear(), month, day].join("-");
+}
+function formatDate2(date) {
+    let d = new Date(date);
+    let month = (d.getMonth() + 1).toString();
+    if (month.length < 2) month = "0" + month;
+    return [d.getFullYear(), month].join("");
+}
+function decrypt(salt, encoded) {
+    if (!encoded) return null;
+    const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
+    const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
+    return encoded.match(/.{1,2}/g).map((hex) => parseInt(hex, 16)).map(applySaltToChar)
+        .map((charCode) => String.fromCharCode(charCode)).join("");
+}
+
 const today = new Date();
 const tomorrow = new Date(today);
 tomorrow.setDate(tomorrow.getDate() + 1);
@@ -14,14 +36,10 @@ const dateToday = today.toISOString().split('T')[0];
 const todayWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateToday}.json`;
 const tomorrowWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateTomorrow}.json`;
 const tradleUrl = "https://tradle.net/data.csv";
-
-// const reader = new FileReader();
-// reader.onload = function(e) {
-//     const text = e.target.result;
-//     const rows = text.split('\n').map(row => row.split(','));
-//     console.log(JSON.stringify(rows, null, 2));
-// };
-// const reader = new FileReader();
+const miniUrl = "https://www.nytimes.com/svc/crosswords/v6/puzzle/mini.json";
+const dayBandle = formatDate(new Date());
+const bandleUrl = `https://sound.bandle.app/answers${formatDate2(new Date())}.txt?d=${Date.now()}`;
+const bandleSalt = "isItReallyWorthIt";
 
 app.use((req, res, next) => {
     console.log(`Received ${req.method} request for ${req.url}`);
@@ -92,7 +110,7 @@ app.get('/', (req,res) => {
 })
 app.get('/api', async (req,res) => {
     try {
-        const response0 = await axios.get(todayWordleUrl, {
+        const todayWordleResponse = await axios.get(todayWordleUrl, {
             headers: {
                 "Accept": "*/*",
                 "Accept-Encoding": "gzip, deflate, br, zstd",
@@ -105,7 +123,7 @@ app.get('/api', async (req,res) => {
                 "Sec-Fetch-Site": "same-origin",
                 }
         });
-        const response1 = await axios.get(tomorrowWordleUrl, {
+        const tomorrowWordleResponse = await axios.get(tomorrowWordleUrl, {
             headers: {
                 "Accept": "*/*",
                 "Accept-Encoding": "gzip, deflate, br, zstd",
@@ -118,18 +136,44 @@ app.get('/api', async (req,res) => {
                 "Sec-Fetch-Site": "same-origin",
                 }
         });
-        const response2 = await axios.get(tradleUrl, {
+        const tradleResponse = await axios.get(tradleUrl, {
             headers: {
                 "Referer": "https://tradle.net/"
                 }
         });
-        let index = response2.data.search(dateToday);
-        res.json([
-            response0.data['solution'],
-            response1.data['solution'],
-            response2.data.slice(index+11, index+13),
-            response2.data.slice(index+26, index+28),
-        ]);
+        let index = tradleResponse.data.search(dateToday);
+        const miniRes = await axios.get(todayWordleUrl, {
+            headers: {
+                "Accept": "*/*",
+                "Accept-Encoding": "gzip, deflate, br, zstd",
+                "Accept-Language": "en-US,en;q=0.9",
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Host": "www.nytimes.com",
+                "Referer": `${miniUrl}`,
+                "Sec-Fetch-Dest": "empty",
+                "Sec-Fetch-Mode": "cors",
+                "Sec-Fetch-Site": "same-origin",
+            }
+        });
+        miniBoard = miniRes.data['body'][0]['board'].replaceall('\"','"');
+        miniCells = miniRes.data['body'][0]['cells'];
+        miniAnswers = [];
+        for (dict in miniCells){
+            if (dict.haskey('answer')){
+                miniAnswers.push(dict['answer'])
+            } else {
+                miniAnswers.push('')
+            }
+        }
+        res.json({
+            "wordleToday" : todayWordleResponse.data['solution'],
+            "wordleTomorrow" : tomorrowWordleResponse.data['solution'],
+            "tradleToday" : tradleResponse.data.slice(index+11, index+13),
+            "tradleTomorrow" : tradleResponse.data.slice(index+26, index+28),
+            "miniAnswers" : miniAnswers,
+            "miniBoard" : miniBoard,
+        });
+
     } catch(error) {
         console.error('Error fetching data:',error);
         res.status(500).send('Internal Server Error');
