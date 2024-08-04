@@ -44,6 +44,26 @@
         <div class="row">
             <div class="col-lg-10">
                 <div class="row">
+                    <h1>Tomorrow's Answers</h1>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <h3>Wordle</h3>
+                        <br>
+                        <p id="wordle-tomorrow">loading...</p>
+                    </div>
+                    <div class="col-4">
+                        <h3>Tradle</h3>
+                        <br>
+                        <p id="tradle-tomorrow">loading...</p>
+                    </div>
+                    <div class="col-4">
+                        <h3></h3>
+                        <br>
+                        <p id=""></p>
+                    </div>
+                </div>
+                <div class="row">
                     <h1>Today's Answers</h1>
                 </div>
                 <div class="row">
@@ -63,24 +83,11 @@
                         <p id=""></p>
                     </div>
                 </div>
+                <br>
                 <div class="row">
-                    <h1>Tomorrow's Answers</h1>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <h3>Wordle</h3>
-                        <br>
-                        <p id="wordle-tomorrow">loading...</p>
-                    </div>
-                    <div class="col-4">
-                        <h3>Tradle</h3>
-                        <br>
-                        <p id="tradle-tomorrow">loading...</p>
-                    </div>
-                    <div class="col-4">
-                        <h3></h3>
-                        <br>
-                        <p id=""></p>
+                    <div class="col-12">
+                        <h3>Mini</h3>
+                        <div id="mini">loading...</div>
                     </div>
                 </div>
             </div>
@@ -106,7 +113,6 @@
                 </ins>
             </div>
         </div> -->
-        <div id="mini"></div>
     
     
     </div>
@@ -114,9 +120,9 @@
     <!-- JavaScript -->
 
     <!-- Adsense -->
-    <script>
+    <!-- <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
+   </script> -->
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
@@ -135,7 +141,7 @@
                 document.getElementById('wordle-today').innerHTML = result['wordleToday'].toUpperCase();
                 document.getElementById('wordle-tomorrow').innerHTML = result['wordleTomorrow'].toUpperCase();
             } else {
-            console.log('Wordle data retrieval failed.');
+            console.error('Wordle data retrieval failed.');
             }
         });
         fetchData(proxyserver+"tradle", 'GET', {})
@@ -144,16 +150,36 @@
                 document.getElementById('tradle-today').innerHTML= regionNames.of(result['tradleToday'].toUpperCase());
                 document.getElementById('tradle-tomorrow').innerHTML= regionNames.of(result['tradleTomorrow'].toUpperCase());
             } else {
-            console.log('Tradle data retrieval failed.');
+            console.error('Tradle data retrieval failed.');
             }
         });
+        var miniAnswersDict = null;
+        const miniDiv = document.getElementById('mini');
         fetchData(proxyserver+"mini", 'GET', {})
         .then(result => {
             if (result) {
-                console.log(result['miniAnswers']);
-                document.getElementById('mini').innerHTML = result['miniBoard'];
+                miniAnswersDict = result['miniAnswers'];
+                miniDiv.innerHTML = result['miniBoard'];
             } else {
-            console.log('Tradle data retrieval failed.');
+            console.error('Tradle data retrieval failed.');
+            }
+        })
+        .then( () => {
+            const svg = miniDiv.children[0];
+            svg.setAttribute('width', '150');
+            svg.setAttribute('height', '150');
+            if (miniAnswersDict){
+                miniAnswers = [];
+                for (i in miniAnswersDict){
+                    if (miniAnswersDict[i]['answer']){
+                        miniAnswers.push(miniAnswersDict[i]['answer']);
+                    } 
+                }
+            }
+            const openCells = svg.querySelectorAll('.guess');
+            for (i=0;i<openCells.length;i++){
+                console.log(miniAnswers[i]);
+                openCells[i].innerHTML = miniAnswers[i];
             }
         });
 

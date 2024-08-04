@@ -25,7 +25,7 @@ function decrypt(salt, encoded) {
     const textToChars = (text) => text.split("").map((c) => c.charCodeAt(0));
     const applySaltToChar = (code) => textToChars(salt).reduce((a, b) => a ^ b, code);
     return encoded.match(/.{1,2}/g).map((hex) => parseInt(hex, 16)).map(applySaltToChar)
-        .map((charCode) => String.fromCharCode(charCode)).join("");
+    .map((charCode) => String.fromCharCode(charCode)).join("");
 }
 
 const today = new Date();
@@ -37,7 +37,6 @@ const todayWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateToday}.json`
 const tomorrowWordleUrl = `https://www.nytimes.com/svc/wordle/v2/${dateTomorrow}.json`;
 const tradleUrl = "https://tradle.net/data.csv";
 const miniUrl = "https://www.nytimes.com/svc/crosswords/v6/puzzle/mini.json";
-const dayBandle = formatDate(new Date());
 const bandleUrl = `https://sound.bandle.app/answers${formatDate2(new Date())}.txt?d=${Date.now()}`;
 const bandleSalt = "isItReallyWorthIt";
 
@@ -45,6 +44,14 @@ app.use((req, res, next) => {
     console.log(`Received ${req.method} request for ${req.url}`);
     next();
 });
+
+app.get('/test', (req,res) => {
+    res.json({message: "Test endpoint hit"});
+})
+app.get('/', (req,res) => {
+    res.json({message: "Home endpoint hit"});
+})
+
 // Define a route that will act as a proxy
 app.get('/wordle', async (req, res) => {
     try {
@@ -100,12 +107,6 @@ app.get('/tradle', async (req, res) => {
     }
 });
 
-app.get('/test', (req,res) => {
-    res.json({message: "Test endpoint hit"});
-})
-app.get('/', (req,res) => {
-    res.json({message: "Home endpoint hit"});
-})
 app.get('/mini', async (req,res) => {
     try {
         const miniRes = await axios.get(miniUrl, {
@@ -123,19 +124,11 @@ app.get('/mini', async (req,res) => {
         });
         miniBoard = miniRes.data['body'][0]['board'];
         miniCells = miniRes.data['body'][0]['cells'];
-        // miniAnswers = [];
-        // for (dict in miniCells){
-        //     if (dict['answer']){
-        //         miniAnswers.push(dict['answer']);
-        //     } else {
-        //         miniAnswers.push('');
-        //     }
-        // }
+
         res.json({
             "miniAnswers" : miniCells,
             "miniBoard" : miniBoard,
         });
-        // res.json({"res":miniRes.data});
 
     } catch(error) {
         console.error('Error fetching data:',error);
@@ -161,9 +154,13 @@ app.get('/bandle', async (req,res) => {
                 // "sec-gpc": "1",
               }
         });
-        desalt = decrypt(bandleSalt, res.data);
+        // console.log(res.data);
+        const answers = JSON.parse(decrypt(bandleSalt, res.text()));
+        const bandleToday = answers.find(x => x.day === formatDate(today));
+        const bandleTomorrow = answers.find(x => x.day === formatDate(tomorrow));
         res.json({
-            "bandle" : desalt,
+            "bandleToday" : bandleToday,
+            "bandleTomorrow" : bandleTomorrow
         });
 
     } catch(error) {
