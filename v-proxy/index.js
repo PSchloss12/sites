@@ -137,7 +137,7 @@ app.get('/mini', async (req,res) => {
 })
 app.get('/bandle', async (req,res) => {
     try {
-        const res = await axios.get(bandleUrl, {
+        const result = await axios.get(bandleUrl, {
             headers: {
                 // ":authority": "sound.bandle.app",
                 // ":scheme": "https",
@@ -154,13 +154,12 @@ app.get('/bandle', async (req,res) => {
                 // "sec-gpc": "1",
               }
         });
-        // console.log(res.data);
-        const answers = JSON.parse(decrypt(bandleSalt, res.text()));
+        const answers = JSON.parse(decrypt(bandleSalt, result.data));
         const bandleToday = answers.find(x => x.day === formatDate(today));
         const bandleTomorrow = answers.find(x => x.day === formatDate(tomorrow));
         res.json({
-            "bandleToday" : bandleToday,
-            "bandleTomorrow" : bandleTomorrow
+            "bandleToday" : bandleToday['song'],
+            "bandleTomorrow" : bandleTomorrow['song']
         });
 
     } catch(error) {

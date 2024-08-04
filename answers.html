@@ -58,9 +58,9 @@
                         <p id="tradle-tomorrow">loading...</p>
                     </div>
                     <div class="col-4">
-                        <h3></h3>
+                        <h3>Bandle</h3>
                         <br>
-                        <p id=""></p>
+                        <p id="bandle-tomorrow">loading...</p>
                     </div>
                 </div>
                 <div class="row">
@@ -78,9 +78,9 @@
                         <p id="tradle-today">loading...</p>
                     </div>
                     <div class="col-4">
-                        <h3></h3>
+                        <h3>Bandle</h3>
                         <br>
-                        <p id=""></p>
+                        <p id="bandle-today">loading...</p>
                     </div>
                 </div>
                 <br>
@@ -149,6 +149,15 @@
             if (result) {
                 document.getElementById('tradle-today').innerHTML= regionNames.of(result['tradleToday'].toUpperCase());
                 document.getElementById('tradle-tomorrow').innerHTML= regionNames.of(result['tradleTomorrow'].toUpperCase());
+            } else {
+            console.error('Tradle data retrieval failed.');
+            }
+        });
+        fetchData(proxyserver+"bandle", 'GET', {})
+        .then(result => {
+            if (result) {
+                document.getElementById('bandle-today').innerHTML= result['bandleToday'];
+                document.getElementById('bandle-tomorrow').innerHTML= result['bandleTomorrow'];
             } else {
             console.error('Tradle data retrieval failed.');
             }
