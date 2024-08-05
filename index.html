@@ -10,23 +10,19 @@
     <title>Patrick Schlosser</title>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Shoelace CSS and JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/dark.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
-    <!-- SVG Icons -->
-    <script type="module">
-        import { registerIconLibrary } from 'https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.5.2/cdn/utilities/icon-library.js';
-
-        registerIconLibrary('my-icons', {
-          resolver: name => 'https://raw.githubusercontent.com/PSchloss12/PSchloss12.github.io/main/icons/${name}.svg',
-        });
-    </script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/components/icon/icon.js"></script>
 
     <!-- Custom CSS -->
     <style>
         h1 {
-            color: gainsboro;
+            color: wheat;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        h3 {
+            color: wheat;
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
         h5 {
@@ -42,7 +38,13 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* display: flex; */
+        }
+        .card-color {
+            background-color: #060118;
+        }
+        a {
+            color: inherit;
+            text-decoration: inherit;
         }
     </style>
 
@@ -52,15 +54,15 @@
 <body style="background-color:#010c26;">
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #11192b; border-bottom: 1px solid wheat;">
-        <div class="navbar-brand">
-            <img src="PJS_Logo.png" alt="" width="30" height="30">
+        <div class="navbar-brand" style="padding-left: 10px;">
+            <img src="images/PJS_Logo.png" alt="" width="30" height="30">
             Patrick Schlosser
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav" style="padding-right: 10px;">
             <a class="nav-item nav-link" href="https://pschloss12.github.io/">Welcome</a>
             <a class="nav-item nav-link" href="https://pschloss12.github.io/projects.html">Projects</a>
           </div>
@@ -69,137 +71,175 @@
         
     <!-- Main Text -->
     <div class="container">
+        
         <div class="row">
           <div class="col-lg-12">
             <br>
             <h1 data-target-resolver style="text-align: center;color: wheat;">Hello and Welcome!</h1>
           </div>
         </div>
+        <br>
         <div class="row">
             <div class="col-lg-8">
-                <br>
-                <p>
-                    As a native Wisconsonite attending school in South Bend,
-                    I'm excited to expand my horizons through travelling, trying new clubs and activities, 
-                    and exploring new ideas, classes, and companies. Recently, I have been developing
-                    technical and professional skills as a Software Engineering Intern at KPMG US.
-                    <!-- At Shambaugh, I managed 
-                    proposal generation applications using VBA; updated territory divisions and emergency lists 
-                    and parse sales data and cost reports with Python; built new service and inspection CRMs and
-                    job trackers to facilitate collaboration between sales teams, local coordinators, and branch managers
-                    for offices around the country in Smartsheet; and provided technical support to 
-                    the National Director of Service and Inspections, managers, coordinators, and sales teams. -->
-                  </p>
-                <p>
-                    In less technical fields, I have also been improving my leadership 
-                    while serving as dorm president junior year and a RA senior year. 
-                    When I'm not busy with dorm activities, 
-                    you can find me playing interhall soccer or football or exploring new 
-                    activities such as Spikeball Club, CS for Good, or Bengal Bouts.
-                </p>
+                <div class="center">
+                    <p>
+                        I am a senior at Notre Dame studying Computer Science and Philosophy.
+                        As a native Wisconsonite attending school in South Bend,
+                        I'm excited to expand my horizons through travelling, trying new clubs and activities, 
+                        and exploring new ideas, classes, and companies. Recently, I have been developing
+                        technical and professional skills as a Software Engineering Intern at KPMG US.
+                        <!-- At Shambaugh, I managed 
+                        proposal generation applications using VBA; updated territory divisions and emergency lists 
+                        and parse sales data and cost reports with Python; built new service and inspection CRMs and
+                        job trackers to facilitate collaboration between sales teams, local coordinators, and branch managers
+                        for offices around the country in Smartsheet; and provided technical support to 
+                        the National Director of Service and Inspections, managers, coordinators, and sales teams. -->
+                      </p>
+                    <p>
+                        In less technical fields, I have also been improving my leadership 
+                        while serving as dorm president junior year and a RA senior year. 
+                        When I'm not busy with dorm activities, 
+                        you can find me playing interhall soccer or football or exploring new 
+                        activities such as Spikeball Club, CS for Good, or Bengal Bouts.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-7">
+                        <h3>Check Out My <a style="color: wheat;" href="https://pschloss12.github.io/projects.html">Projects:</a></h3>
+                    </div>
+                </div>
+                <div class="row row-cols-md-2 h-100">
+                    <div class="col">
+                        <div class="card text-center text-bg-dark border-light mb-3" style="max-width: 540px;">
+                            <a href="https://pschloss12.github.io/projects.html#siamese">
+                                <div class="row row-cols-2 g-0">
+                                    <div class="col">
+                                        <img src="images/siamese_architecture_square.png" class="img-fluid rounded-start" alt="siamese_architecture.png">
+                                    </div>
+                                    <div class="col">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Siamese Network</h5>
+                                            <p class="card-text">Signature verification group project in Neural Networks</p>
+                                            <!-- <p class="card-text"><small class="text-body-secondary">AI Project</small></p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card text-center text-bg-dark border-light mb-3" style="max-width: 540px;">
+                            <a href="https://pschloss12.github.io/projects.html#browser">
+                                <div class="row row-cols-2 g-0">
+                                    <div class="col">
+                                        <img src="images/reddit_logo.webp" class="img-fluid rounded-start" alt="siamese_architecture.png">
+                                    </div>
+                                    <div class="col">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Reddit Browser</h5>
+                                            <p class="card-text">Browse reddit data with custom account functionality</p>
+                                            <!-- <p class="card-text"><small class="text-body-secondary">Full Stack Project</small></p> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-4">
-                <br>
                 <div class="center">
-                <img src="head_shot_square.jpeg" alt="Patrick Schlosser" width="250" height="250">
-                <br><br><br>
-                <span style="color: gainsboro;">
-                    Find me on <a href="https://www.linkedin.com/in/patrick-schlosser/" style="color: wheat">LinkedIn</a>
-                    <br>
-                    Contact me at <a style="color: wheat">pschloss@nd.edu</a>
-                </span>
-                <br>
-                <img src="PJS_Logo.png" alt="Patrick Schlosser" width="100" height="100">
-                </div>
-              </div>
-        </div>
-        <br><br><br><br>
-        
-        <!-- Logos -->
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-7">
-                <!-- This will show the icon located at /assets/icons/smile.svg -->
-                <!-- <sl-icon library="my-icons" name="python_icon"></sl-icon> -->
-                <sl-icon src=""style="font-size: 2rem;"></sl-icon>
-                <!-- <sl-icon src=""style="font-size: 2rem;"></sl-icon>-->
-                <a target="_blank" href="https://www.python.org/">
-                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://www.oracle.com/java/">
-                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://git-scm.com/">
-                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://github.com/">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" style="font-size: 2rem; background-color: aliceblue;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://www.w3.org/TR/CSS/#css">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://aws.amazon.com/what-is/sql/#:~:text=Structured%20query%20language%20(SQL)%20is,relationships%20between%20the%20data%20values.">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Sql_data_base_with_logo.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <!-- IDK why this isn't working as an icon -->
-                <!-- <a target="_blank" style="align-self: center;" href="https://learn.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office"> -->
-                    <!-- <sl-icon src="https://raw.githubusercontent.com/PSchloss12/PSchloss12.github.io/main/icons/vba.svg" style="font-size: 2rem"></sl-icon> -->
-                    <!-- <img src="https://raw.githubusercontent.com/PSchloss12/PSchloss12.github.io/main/icons/vba.svg" style="font-size: 2rem"></img> -->
-                    <!-- <sl-icon library="my-icons" name="python"></sl-icon> -->
-                <!-- </a> -->
-                <a target="_blank" href="https://www.mysql.com/">
-                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://www.gnu.org/software/bash/">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://getbootstrap.com/">
-                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://pytorch.org/">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
-                <a target="_blank" href="https://riscv.org/">
-                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/6b/RISC-V-logo-square.svg" style="font-size: 2rem;"></sl-icon>
-                </a>
+                        <img src="images/head_shot_square.jpeg" alt="Patrick Schlosser" width="250" height="250" style="border-radius: 5px;">
+                        <br><br>
+                        <span style="color: gainsboro;">
+                            Find me on <a href="https://www.linkedin.com/in/patrick-schlosser/" style="color: wheat">LinkedIn</a>
+                            <br>
+                            Contact me at <a style="color: wheat">pschloss@nd.edu</a>
+                        </span>
+                        <br><br>
+                        <img src="images/PJS_Logo.png" alt="Patrick Schlosser" width="100" height="100">
+                    </div>
             </div>
-            <!-- <div class="col-lg-3"></div> -->
         </div>
 
-      <br>
+        <!-- Logos -->
+        
+        
       <!-- Bottom Navigation Bar -->
       <nav class="navbar fixed-bottom navbar-dark" style="background-color: #11192b; border-top: 1px solid wheat;">
           <div class="container-fluid justify-content-center navbar-text">
-              <img src="PJS_Logo.png" alt="" width="30" height="30">
+              <!-- <img src="images/PJS_Logo.png" alt="" width="30" height="30">
               <a class="" href="https://www.linkedin.com/in/patrick-schlosser/" style="text-decoration: underline; color: gray;">
                   Find me on Linkedin!
-              </a>
+              </a> -->
+              <!-- <div class="row"> -->
+                <!-- <div class="col-lg-12"> -->
+                    <div style="font-size: 28px;">
+                        <a target="_blank" href="https://www.python.org/">
+                            <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://www.oracle.com/java/">
+                            <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://git-scm.com/">
+                            <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://github.com/">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" style="background-color: aliceblue;"></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://www.w3.org/TR/CSS/#css">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                            <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://aws.amazon.com/what-is/sql/#:~:text=Structured%20query%20language%20(SQL)%20is,relationships%20between%20the%20data%20values.">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Sql_data_base_with_logo.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" style="align-self: center;" href="https://learn.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/7/78/Microsoft_Visual_Basic_for_Applications_logo.svg" style="background-color: aliceblue; border-radius: 20%;"></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://www.mysql.com/">
+                            <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://www.gnu.org/software/bash/">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://getbootstrap.com/">
+                            <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://pytorch.org/">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" ></sl-icon>
+                        </a>
+                        <a target="_blank" href="https://riscv.org/">
+                            <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/6b/RISC-V-logo-square.svg" ></sl-icon>
+                        </a>
+                    </div>
+                <!-- </div> -->
+            <!-- </div> -->
           </div>
         </nav>
-
     </div>
-
+    
     <!-- JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    
     <!-- Text reveal -->
     <script>  
       const resolver = {
@@ -254,7 +294,7 @@
               const partialString = resolveString.substring(0, offset);
               const combinedOptions = Object.assign({}, options, {
                   partialString: partialString
-              });
+                });
 
               doRandomiserEffect(combinedOptions, () => {
                   const nextOptions = Object.assign({}, options, {
@@ -283,7 +323,7 @@
 
 
         let counter = 0;
-
+        
         const options = {
             // Initial position
             offset: 1,
@@ -309,14 +349,14 @@
                     counter = 0;
                 }
                 if (counter<strings.length){
-                  let nextOptions = Object.assign({}, options, {
+                    let nextOptions = Object.assign({}, options, {
                       resolveString: strings[counter]
-                  });
+                    });
                   resolver.resolve(nextOptions, callback);
                 }
             }, counter == strings.length-1 ? 6000 : 3000);
         }
 
-      resolver.resolve(options, callback);
+        resolver.resolve(options, callback);
     </script>
 </body>
