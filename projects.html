@@ -11,7 +11,15 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <!-- Vercel analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
     <!-- Custom CSS -->
     <style>
         h1 {
@@ -331,10 +339,10 @@
         </div>
         <br><br>
         <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-6">
-                <iframe src="https://dunnehall.com/" sandbox="" width="100%" height="100%"></iframe>
+            <div class="col-sm-4">
+                <!-- <iframe src="https://dunnehall.com/" sandbox="" width="100%" height="100%"></iframe> -->
               </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8">
             <h5 style="text-decoration: underline;  font-weight: bold;">Dunne Hall Website</h5>
             <a href="https://dunnehall.com/" style="color: wheat">Dunne Hall Website</a>
             <p>
@@ -371,7 +379,7 @@
         <div class="row" style="border-left: 1px solid wheat;">
             <div class="col-sm-8">
                 <h5 style="text-decoration: underline; font-weight: bold;">Languages</h5>
-                <p>
+                <p id="siamese">
                     I have experience with (in some order) Python, C, VBA, HTML, CSS, JS/TS, SQL,
                     Java, C#, bash, Verilog, and
                     Google Script. I also frequently work with Git,
@@ -379,7 +387,7 @@
                 </p>
             </div>
         </div>
-        <br id="siamese">
+        <br>
         <div class="row" style="text-align: right; border-right: 1px solid wheat;">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">
@@ -437,14 +445,14 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-8">
                 <h5 style="text-decoration: underline; font-weight: bold;">Turing Machine Compiler</h5>
-                <p>
+                <p id="browser">
                     In the same class, my partner and I wrote a tm_to_sed application
                     which takes in the encoding of a turing machine in a text file and
                     outputs a sed script equivalent to the tm file.
                 </p>
             </div>
         </div>
-        <br id="browser">
+        <br>
         <div class="row" style="text-align: left; border-left: 1px solid wheat;">
             <div class="col-sm-8">
                 <h5 style="text-decoration: underline; font-weight: bold;">Reddit Browser</h5>
