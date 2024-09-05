@@ -39,6 +39,17 @@
         p {
             color: gainsboro;
         }
+        ul {
+            background: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            display: inline;
+            list-style: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
         #patrick{
           transition: transform 0.5s ease-in-out, font-size 0.5s ease-in-out;
         }
@@ -184,66 +195,108 @@
                     </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-bottom: 10;">
         </div>
         
     </div>
 
       <!-- Bottom Navigation Bar -->
     <nav class="navbar fixed-bottom navbar-dark" style="background-color: #11192b; border-top: 1px solid wheat;">
-        <div class="container-fluid justify-content-center navbar-text">
-            <a target="_blank" href="https://www.python.org/">
-                <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://www.oracle.com/java/">
-                <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://git-scm.com/">
-                <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://github.com/">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" style="background-color: aliceblue;"></sl-icon>
-            </a>
-            <a target="_blank" href="https://www.w3.org/TR/CSS/#css">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://aws.amazon.com/what-is/sql/#:~:text=Structured%20query%20language%20(SQL)%20is,relationships%20between%20the%20data%20values.">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Sql_data_base_with_logo.svg" ></sl-icon>
-            </a>
-            <a target="_blank" style="align-self: center;" href="https://learn.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/7/78/Microsoft_Visual_Basic_for_Applications_logo.svg" style="background-color: aliceblue; border-radius: 20%;"></sl-icon>
-            </a>
-            <a target="_blank" href="https://www.mysql.com/">
-                <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://www.gnu.org/software/bash/">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://getbootstrap.com/">
-                <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://pytorch.org/">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" ></sl-icon>
-            </a>
-            <a target="_blank" href="https://riscv.org/">
-                <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/6b/RISC-V-logo-square.svg" ></sl-icon>
-            </a>
+        <!-- <div class="container-fluid justify-content-center navbar-text"> -->
+        <div class="container-fluid justify-content-center" style="max-width: 1000; min-height: 300;">
+            <ul>
+            <li>
+                <a target="_blank" href="https://www.python.org/">
+                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/18/C_Programming_Language.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Logo_C_sharp.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.oracle.com/java/">
+                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/java-colored.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://git-scm.com/">
+                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/git-colored.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://github.com/">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" style="background-color: aliceblue;"></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.w3.org/TR/CSS/#css">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/3/38/HTML5_Badge.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Typescript.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://aws.amazon.com/what-is/sql/#:~:text=Structured%20query%20language%20(SQL)%20is,relationships%20between%20the%20data%20values.">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Sql_data_base_with_logo.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+
+                <a target="_blank" style="align-self: center;" href="https://learn.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/7/78/Microsoft_Visual_Basic_for_Applications_logo.svg" style="background-color: aliceblue; border-radius: 20%;"></sl-icon>
+                </a>
+            </li>
+            <li>
+
+                <a target="_blank" href="https://www.mysql.com/">
+                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql-colored.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+
+                <a target="_blank" href="https://www.gnu.org/software/bash/">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+
+                <a target="_blank" href="https://getbootstrap.com/">
+                    <sl-icon src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/bootstrap-colored.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://pytorch.org/">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/1/10/PyTorch_logo_icon.svg" ></sl-icon>
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://riscv.org/">
+                    <sl-icon src="https://upload.wikimedia.org/wikipedia/commons/6/6b/RISC-V-logo-square.svg" ></sl-icon>
+                </a>
+            </li>
+        </ul>
         </div>
+        <!-- </div> -->
     </nav>
     
     <!-- Text reveal -->
