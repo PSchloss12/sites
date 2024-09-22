@@ -1,0 +1,120 @@
+/* font installs */
+@import url("https://fonts.googleapis.com/css2?family=Geo:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sofadi+One&display=swap");
+.sofadi-one-regular {
+  font-family: "Sofadi One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.geo-italic {
+  font-family: "Geo", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+/* give a margin */
+.pad {
+  padding: 10px;
+  margin: 10px;
+}
+/* center text */
+.center-text {
+  text-align: center;
+}
+.rotate-left {
+  transform: rotate(-90deg); /* rotate 45 degrees clockwise */
+}
+/* CSS Grid, 3 wide */
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin: 15px;
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+}
+.two {
+  grid-column: 2;
+  grid-row: 1;
+}
+.three {
+  grid-column: 3;
+  grid-row: 1;
+}
+.four {
+  grid-column: 1;
+  grid-row: 2;
+}
+.five {
+  grid-column: 2;
+  grid-row: 2;
+}
+.six {
+  grid-column: 3;
+  grid-row: 2;
+}
+.seven {
+  grid-column: 1;
+  grid-row: 3;
+}
+.eight {
+  grid-column: 2;
+  grid-row: 3;
+}
+.nine {
+  grid-column: 3;
+  grid-row: 3;
+}
+/* Nav Bar */
+.navigation {
+  /* flexbox styles */
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+
+  list-style: none;
+  margin: 0;
+  background: navy;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+  font-family: "Geo", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.navigation a:hover {
+  background: darkblue;
+}
+
+/* media query styles are only applied if the conditions are met */
+@media all and (max-width: 800px) {
+  .navigation {
+    flex-flow: column wrap;
+    padding: 0;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .navigation {
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  .navigation a {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation li:last-of-type a {
+    border-bottom: none;
+  }
+}
