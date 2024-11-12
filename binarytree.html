@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      background-color: #f4f4f4;
+    }
+
+    #settings {
+      width: 200px;
+      padding: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-right: 1px solid #ccc;
+    }
+
+    #treeInput {
+      margin-bottom: 20px;
+    }
+
+    #visualization {
+      flex-grow: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .row {
+      display: flex;
+      position: relative;
+    }
+
+    .node {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px; /* Adjust horizontal offset */
+      position: absolute;
+    }
+
+    .line {
+      stroke: #333;
+      stroke-width: 2;
+    }
+  </style>
+</head>
+<body>
+  <div id="settings">
+    <label for="treeInput">Enter Tree (Array):</label>
+    <input type="text" id="treeInput" placeholder="e.g., 1,2,3,4,5,null,7">
+
+    <button onclick="visualizeTree()">Visualize Tree</button>
+  </div>
+
+  <div id="visualization"></div>
+
+  <script>
+    function visualizeTree() {
+      const treeInput = document.getElementById("treeInput").value;
+      const treeArray = treeInput.split(',').map(item => item.trim() === 'null' ? null : parseInt(item));
+      const treeHeight = Math.floor(Math.log2(treeArray.length))+1
+
+      const visualization = document.getElementById("visualization");
+      visualization.innerHTML = "";
+
+      const root = createTree(treeArray, 0);
+
+      if (root) {
+        visualizeNode(root, visualization, 0, 0, 0, treeHeight);
+      }
+    }
+
+    function createTree(treeArray, index) {
+      if (index < treeArray.length && treeArray[index] !== null) {
+        const node = { value: treeArray[index] };
+        node.left = createTree(treeArray, 2 * index + 1);
+        node.right = createTree(treeArray, 2 * index + 2);
+        return node;
+      }
+      return null;
+    }
+
+    function visualizeNode(node, parentElement, level, horizontalOffset, verticalOffset, treeHeight) {
+      if (node !== null) {
+        const nodeElement = document.createElement("div");
+        nodeElement.className = "node";
+        nodeElement.innerText = node.value;
+
+        // Create a new row if it's a new level
+        if (!parentElement.children[level]) {
+          const rowElement = document.createElement("div");
+          rowElement.className = "row";
+          parentElement.appendChild(rowElement);
+        }
+
+        // Position the node absolutely within the row
+        nodeElement.style.left = `${horizontalOffset}px`;
+        nodeElement.style.top = `${verticalOffset}px`;
+
+        parentElement.children[level].appendChild(nodeElement);
+
+        // Connect nodes with lines
+        // drawLine(horizontalOffset + 20, verticalOffset + 40, horizontalOffset, verticalOffset + 50);
+        // drawLine(horizontalOffset + 20, verticalOffset + 40, horizontalOffset, verticalOffset + 50);
+        let delta = 0.0
+        if (level == 0){
+          delta = 8+ Math.pow(treeHeight,1.8) * Math.pow( (treeHeight)/(level+1.3),1.9);
+        }
+        else{
+          delta = Math.pow(treeHeight,1.8) * Math.pow( (treeHeight)/(level+1),2);
+        }
+        // Offset diagonally for child nodes
+        visualizeNode(node.left, parentElement, level + 1, horizontalOffset - delta, verticalOffset + 50, treeHeight);
+        visualizeNode(node.right, parentElement, level + 1, horizontalOffset + delta, verticalOffset + 50, treeHeight);
+        // visualizeNode(node.right, parentElement, level + 1, horizontalOffset + 1*(treeHeight-1) * Math.pow(treeHeight,2.5)/(1.7*level+1), verticalOffset + 50, treeHeight);
+      }
+    }
+    function drawLine(x1, y1, x2, y2) {
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", x1);
+      line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2);
+      line.setAttribute("y2", y2);
+      line.setAttribute("class", "line");
+      document.getElementById("visualization").appendChild(line);
+    }
+  </script>
+</body>
+</html>
