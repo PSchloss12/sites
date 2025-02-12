@@ -236,7 +236,7 @@
     <nav class="nav1" style = "top: 5px; position: sticky; z-index: 5; border-bottom: 1px solid wheat; border-top: 1px solid wheat;">
         <a href="#home" style="width: 17%;">Home</a>
         <a href="#academcis" style="width: 19%;">Academics</a>
-        <a href="#websites" style="width: 18%;">Websites</a>
+        <a href="#websites" style="width: 18%;">Research</a>
         <a href="#tech" style="width: 24%;">Tech Projects</a>
         <a href="#leader" style="width: 22%;">Leadership</a>
         <div class="animation"></div>
@@ -282,7 +282,7 @@
                             <th scope="col" colspan="3" style="color: gainsboro;">Relevant Coursework</th>
                         </tr> -->
                         <tr>
-                            <th scope="col" colspan="3" style="color: gainsboro;">Completed Courses</th>
+                            <th scope="col" colspan="4" style="color: gainsboro;">Completed Courses</th>
                             <th scope="col" style="color: gainsboro;">Current Courses</th>
                         </tr>
                     </thead>
@@ -291,19 +291,22 @@
                             <td style="color: lightgray;">Data Structures</td>
                             <td style="color: lightgray;">Systems Programming</td>
                             <td style="color: lightgray;">Algorithms</td>
-                            <td style="color: gray;">Databases</td>
+                            <td style="color: lightgray;">Databases</td>
+                            <td style="color: gray;">Advanced Databases</td>
                         </tr>
                         <tr>
                             <td style="color: lightgray;">Logic Design</td>
                             <td style="color: lightgray;">Computer Architecture</td>
                             <td style="color: lightgray;">Computer Security</td>
-                            <td style="color: gray;">Distributed Systems</td>
+                            <td style="color: lightgray;">Distributed Systems</td>
+                            <td style="color: gray;">High Frequency Trading</td>
                         </tr>
                         <tr>
                             <td style="color: lightgray;">Programming Paradigms</td>
                             <td style="color: lightgray;">Introduction to A.I.</td>
                             <td style="color: lightgray;">Neural Networks</td>
-                            <td style="color: gray;">Game Development</td>
+                            <td style="color: lightgray;">Game Development</td>
+                            <td style="color: gray;">Droid Building</td>
                         </tr>
                         <tr>
                             <td style="color: lightgray;">Theory of Computing</td>
@@ -320,54 +323,21 @@
 
     <hr id="ricknmorty" style="background-color: wheat;">
     <!-- Websites Section-->
-    <h1 style="text-align: center; scroll-margin-top: 60px;" id="websites">Websites</h1>
+    <h1 style="text-align: center; scroll-margin-top: 60px;" id="websites">Research</h1>
     <br>
     <div class="container">
         <div class="row" style="border-left: 1px solid wheat;">
             <div class="col-sm-8">
-                <h5 style="text-decoration: underline; font-weight: bold;">Programming Paradigms Project</h5>
-                <!-- <a href="#" style="color: wheat">Rick and Morty</a> -->
-                <p>
-                    For this full stack project focused on the Event-based and OOP paradigms,
-                    I created a Rick and Morty website. On the backend, I powered my database with SQLAlchemy
-                    and populated it with data of locations, characters, and episoades from a RESTful API.
-                    I ran my Flask app and exported parsed data to my Flask HTML templates 
-                    using Python. I integrated a Bootstrap responsive desing to create a mobile-first
-                    application, but I only hosted this on a local machine.
+                <h5 style="text-decoration: underline; font-weight: bold;">Gesture Recognition</h5>
+                <p id="research">
+                    Working with the <a href="http://sarec.nd.edu/" style="color: wheat">SAREC</a> Drone Response research group,
+                    I am developing gesture recognition capabilities for the drones using CV techniques.
+                    This will enable direction of deployed drones
+                    by emergency responders on the ground.
+                    We started by building and processing a custom dataset of poses on which to train our model.
                 </p>
             </div>
         </div>
-        <br><br>
-        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-4">
-                <!-- <iframe src="https://dunnehall.com/" sandbox="" width="100%" height="100%"></iframe> -->
-              </div>
-            <div class="col-sm-8">
-            <h5 style="text-decoration: underline;  font-weight: bold;">Dunne Hall Website</h5>
-            <a href="https://dunnehall.com/" style="color: wheat">Dunne Hall Website</a>
-            <p>
-                As Dunne Hall's website commissoner, I redesigned Dunne's website 
-                in 2022, hosted at dunnehall.com using DreamHost. This site
-                contains some bootstrap pieces but we built it mostly with custom HTML.
-            </p>
-          </div>
-        </div>
-        <br><Br>
-        <div class="row" style="border-left: 1px solid wheat;">
-            <div class="col-sm-8">
-                <h5 style="text-decoration: underline; font-weight: bold;">Engineering Computing Project</h5>
-                <a href="https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-08-08/index.html" style="color: wheat">The Impact of Covid on the Economy</a>
-                <p>
-                    For our data analytics final project in this course, my partner
-                    and I displayed
-                    our analysis of Covid's impact on the economy on the above page.
-                    The data was largely parsed from csv format with pandas and plotly in python.
-                </p>
-            </div>
-            <!-- <div class="col-sm-6">
-                <iframe src="https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-08-08/index.html" sandbox="" width="100%" height="100%"></iframe>
-              </div> -->
-          </div>
     </div>
     <br>
     <hr style="background-color: wheat;">
@@ -380,7 +350,7 @@
             <div class="col-sm-8">
                 <h5 style="text-decoration: underline; font-weight: bold;">Languages</h5>
                 <p id="siamese">
-                    I have experience with (in some order) Python, C, VBA, HTML, CSS, JS/TS, SQL,
+                    I have experience with (in some order) Python, C, VBA, SPAs, HTML, CSS, JS/TS, SQL, C++,
                     Java, C#, bash, Verilog, and
                     Google Script. I also frequently work with Git,
                     GitHub, and Microsoft Office Applications.
@@ -509,6 +479,51 @@
                     Designed a MLFQ policy without implementation in the scheduler.
                 </p>
             </div>
+        </div>
+        <div class="row" style="border-left: 1px solid wheat;">
+            <div class="col-sm-8">
+                <h5 style="text-decoration: underline; font-weight: bold;">Programming Paradigms Project</h5>
+                <!-- <a href="#" style="color: wheat">Rick and Morty</a> -->
+                <p>
+                    For this full stack project focused on the Event-based and OOP paradigms,
+                    I created a Rick and Morty website. On the backend, I powered my database with SQLAlchemy
+                    and populated it with data of locations, characters, and episoades from a RESTful API.
+                    I ran my Flask app and exported parsed data to my Flask HTML templates 
+                    using Python. I integrated a Bootstrap responsive desing to create a mobile-first
+                    application, but I only hosted this on a local machine.
+                </p>
+            </div>
+        </div>
+        <br><br>
+        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-4">
+                <!-- <iframe src="https://dunnehall.com/" sandbox="" width="100%" height="100%"></iframe> -->
+              </div>
+            <div class="col-sm-8">
+            <h5 style="text-decoration: underline;  font-weight: bold;">Dunne Hall Website</h5>
+            <a href="https://dunnehall.com/" style="color: wheat">Dunne Hall Website</a>
+            <p>
+                As Dunne Hall's website commissoner, I redesigned Dunne's website 
+                in 2022, hosted at dunnehall.com using DreamHost. This site
+                contains some bootstrap pieces but we built it mostly with custom HTML.
+            </p>
+          </div>
+        </div>
+        <br><Br>
+        <div class="row" style="border-left: 1px solid wheat;">
+            <div class="col-sm-8">
+                <h5 style="text-decoration: underline; font-weight: bold;">Engineering Computing Project</h5>
+                <a href="https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-08-08/index.html" style="color: wheat">The Impact of Covid on the Economy</a>
+                <p>
+                    For our data analytics final project in this course, my partner
+                    and I displayed
+                    our analysis of Covid's impact on the economy on the above page.
+                    The data was largely parsed from csv format with pandas and plotly in python.
+                </p>
+            </div>
+            <!-- <div class="col-sm-6">
+                <iframe src="https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-08-08/index.html" sandbox="" width="100%" height="100%"></iframe>
+              </div> -->
         </div>
     </div>
     <br>
