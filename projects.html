@@ -338,16 +338,9 @@
                 </p>
             </div>
         </div>
-    </div>
-    <br>
-    <hr style="background-color: wheat;">
-
-    <!-- Technical Projects Section -->
-    <h1 style="text-align: center; scroll-margin-top: 60px;" id="tech">Technical Projects and Skills</h1>
-    <br>
-    <div class="container">
-        <div class="row" style="border-left: 1px solid wheat;">
-            <div class="col-sm-8">
+        <br>
+        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Languages</h5>
                 <p id="siamese">
                     I have experience with (in some order) Python, C, VBA, SPAs, HTML, CSS, JS/TS, SQL, C++,
@@ -357,23 +350,43 @@
                 </p>
             </div>
         </div>
+    </div>
+    <br>
+    <hr style="background-color: wheat;">
+
+    <!-- Technical Projects Section -->
+    <h1 style="text-align: center; scroll-margin-top: 60px;" id="tech">Technical Projects and Skills</h1>
+    <br>
+    <div class="container">
+        <div class="dropdown" style="text-align: right;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+            Project Category
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a class="dropdown-item" href="#" cat="fullstack">Full Stack</a></li>
+                <li><a class="dropdown-item" href="#" cat="ai-ml">AI/ML</a></li>
+                <!-- <li><a class="dropdown-item" href="#" cat="infosec">InfoSec</a></li> -->
+                <!-- <li><a class="dropdown-item" href="#" cat="gamedev">Game Dev</a></li> -->
+                <li><a class="dropdown-item" href="#" cat="backend">Backend</a></li>
+                <li><a class="dropdown-item" href="#" cat="frontend">Frontend</a></li>
+            </ul>
+        </div>
         <br>
-        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
+
+        <div class="row" cat="ai-ml" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Signature Verification Siamese Network</h5>
-                <p id="trivia">
+                <p id="trivia" class="desc">
                     I crafted a custom siamese network architecture using PyTorch and trained, validated, and tested 
                     on a dataset from Kaggle with a partner. The finished model achieved
                      a validation accuracy of 90% and test accuracy of 82.5% on signatures from the dataset.
                 </p>
             </div>
         </div>
-        <br>        
-        <div class="row" style="border-left: 1px solid wheat;">
-            <div class="col-sm-8">
+        <div class="row" cat="fullstack" style="border-left: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Trivia2 the SQL</h5>
-                <p id="marketplace">
+                <p id="marketplace" class="desc">
                     I developed a trivia application using React for the front end and Supabase SQL
                     for the backend, managing a database with over 50,000 trivia questions.
                     Implemented features for creating, purchasing, and managing custom question decks. 
@@ -385,13 +398,11 @@
                 </p>
             </div>
         </div>
-        <br>
-        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
+        <div class="row" cat="fullstack" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Student Marketplace</h5>
                 <a href="https://student-marketplace-mu.vercel.app/" style="color: wheat">Student Marketplace</a>
-                <p>
+                <p class="desc">
                     I created a student marketplace app using React for the front end and a 
                     NoSQL database on the backend with Python.  
                     I implemented robust search and filter functionalities to improve user experience. 
@@ -401,23 +412,20 @@
                 </p>
             </div>
         </div>
-        <br>
-        <div class="row" style="border-left: 1px solid wheat;">
-            <div class="col-sm-8">
+        <div class="row" cat="backend" style="border-left: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Heap Management</h5>
-                <p>
+                <p class="desc">
                     Working in C, I built a set of custom memory management functions including
                     malloc(), calloc(), realloc(), and free() with one partner. We learned how 
                     to inject them with custom linking to applications like cat. 
                 </p>
             </div>
         </div>
-        <br>
-        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
+        <div class="row" cat="ai-ml" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Story Telling LSTM</h5>
-                <p>
+                <p class="desc">
                     Over the course of a semester, I researched and created a LSTM designed to help
                     young authors solve writers' block by prompting the next line of text in Python using
                     PyTorch and a custom training dataset. After creating a class for my LSTM model and
@@ -427,11 +435,10 @@
                 </p>
             </div>
         </div>
-        <br>
-        <div class="row" style="text-align: left; border-left: 1px solid wheat;">
-            <div class="col-sm-8">
+        <div class="row" cat="backend" style="text-align: left; border-left: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Unix grep and sed Variants</h5>
-                <p>
+                <p class="desc">
                     In Theory of Computing, I wrote a Pythonic, NFA-based,
                     grep-style regular expression matcher with back-referencing
                     capabilities that runs in linear time with a partner.
@@ -442,23 +449,20 @@
                 </p>
             </div>
         </div>
-        <br>
-        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
+        <div class="row" cat="backend" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Turing Machine Compiler</h5>
-                <p id="browser">
+                <p id="browser" class="desc">
                     In the same class, my partner and I wrote a tm_to_sed application
                     which takes in the encoding of a turing machine in a text file and
                     outputs a sed script equivalent to the tm file.
                 </p>
             </div>
         </div>
-        <br>
-        <div class="row" style="text-align: left; border-left: 1px solid wheat;">
-            <div class="col-sm-8">
+        <div class="row" cat="fullstack" style="text-align: left; border-left: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Reddit Browser</h5>
-                <p>
+                <p class="desc">
                     Before the Reddit API policy changes, I completed this full stack project to
                     essentially recreate Reddit's functionality. I stored over one thousand subreddits
                     in a database and links to these subreddits populated the home page. Each subreddit
@@ -469,23 +473,21 @@
                 </p>
             </div>
         </div>
-        <br>
-        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-8">
+        <div class="row" cat="backend" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Scheduler Design</h5>
-                <p>
+                <p class="desc">
                     Worked with a partner to design a C99 based shell with options for both a FIFO and
                     round robin process scheduling policies.
                     Designed a MLFQ policy without implementation in the scheduler.
                 </p>
             </div>
         </div>
-        <div class="row" style="border-left: 1px solid wheat;">
-            <div class="col-sm-8">
+        <div class="row" cat="fullstack" style="border-left: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Programming Paradigms Project</h5>
                 <!-- <a href="#" style="color: wheat">Rick and Morty</a> -->
-                <p>
+                <p class="desc">
                     For this full stack project focused on the Event-based and OOP paradigms,
                     I created a Rick and Morty website. On the backend, I powered my database with SQLAlchemy
                     and populated it with data of locations, characters, and episoades from a RESTful API.
@@ -495,27 +497,22 @@
                 </p>
             </div>
         </div>
-        <br><br>
-        <div class="row" style="text-align: right; border-right: 1px solid wheat;">
-            <div class="col-sm-4">
-                <!-- <iframe src="https://dunnehall.com/" sandbox="" width="100%" height="100%"></iframe> -->
-              </div>
-            <div class="col-sm-8">
-            <h5 style="text-decoration: underline;  font-weight: bold;">Dunne Hall Website</h5>
-            <a href="https://dunnehall.com/" style="color: wheat">Dunne Hall Website</a>
-            <p>
-                As Dunne Hall's website commissoner, I redesigned Dunne's website 
-                in 2022, hosted at dunnehall.com using DreamHost. This site
-                contains some bootstrap pieces but we built it mostly with custom HTML.
-            </p>
-          </div>
+        <div class="row" cat="frontend" style="text-align: right; border-right: 1px solid wheat;">
+            <div class="col-sm-12">
+                <h5 style="text-decoration: underline;  font-weight: bold;">Dunne Hall Website</h5>
+                <a href="https://dunnehall.com/" style="color: wheat">Dunne Hall Website</a>
+                <p class="desc">
+                    As Dunne Hall's website commissoner, I redesigned Dunne's website 
+                    in 2022, hosted at dunnehall.com using DreamHost. This site
+                    contains some bootstrap pieces but we built it mostly with custom HTML.
+                </p>
+            </div>
         </div>
-        <br><Br>
-        <div class="row" style="border-left: 1px solid wheat;">
-            <div class="col-sm-8">
+        <div class="row" cat="frontend" style="border-left: 1px solid wheat;">
+            <div class="col-sm-12">
                 <h5 style="text-decoration: underline; font-weight: bold;">Engineering Computing Project</h5>
                 <a href="https://www3.nd.edu/~skumar5/teaching/additional/spring-2022-eg/project-08-08/index.html" style="color: wheat">The Impact of Covid on the Economy</a>
-                <p>
+                <p class="desc">
                     For our data analytics final project in this course, my partner
                     and I displayed
                     our analysis of Covid's impact on the economy on the above page.
@@ -582,6 +579,95 @@
     <hr style="background-color: wheat;">
 
     <!-- JavaScript -->
+     <script>
+        // Add in drop down menu to display projects
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function (e) {
+            e.preventDefault();
+            const selectedCategory = this.getAttribute('cat');
+            const selectedText = this.textContent; // Get the text of the clicked item
+
+            // Update the button text
+            const dropdownButton = document.querySelector('.dropdown-toggle');
+            dropdownButton.textContent = selectedText;
+            
+            // Hide all rows
+            document.querySelectorAll('.row[cat]').forEach(row => {
+                row.style.display = 'none';
+            });
+
+            // Show rows matching the selected category and alternate styles
+            const rows = document.querySelectorAll(`.row[cat="${selectedCategory}"]`);
+            rows.forEach((row, index) => {
+                row.style.display = 'flex';
+                const paragraphs = row.querySelectorAll('.desc');
+                paragraphs.forEach(p => {
+                    p.style.maxWidth = '66.67%'; // 2/3 of the parent width
+                    if (index % 2 === 0) {
+                        p.style.textAlign = 'left'; // Left alignment for even rows
+                    } else {
+                        p.style.textAlign = 'right'; // Right alignment for odd rows
+                        p.style.marginLeft = 'auto'; // Align to the right
+                    }
+                });
+                if (index % 2 === 0) {
+                    // Left alignment for even rows
+                    row.style.textAlign = 'left';
+                    row.style.borderLeft = '1px solid wheat';
+                    row.style.borderRight = 'none';
+                } else {
+                    // Right alignment for odd rows
+                    // paragraphs.forEach(p => {
+                    //     p.style.maxWidth = '50%'; // 2/3 of the parent width
+                    // });
+                    row.style.textAlign = 'right';
+                    row.style.borderRight = '1px solid wheat';
+                    row.style.borderLeft = 'none';
+                }
+            });
+        });
+    });
+    // Select "Full Stack" projects by default on page load
+document.addEventListener('DOMContentLoaded', function () {
+    const defaultCategory = 'fullstack'; // Default category
+    const dropdownButton = document.querySelector('.dropdown-toggle');
+    const rows = document.querySelectorAll(`.row[cat="${defaultCategory}"]`);
+
+    // Update the button text
+    dropdownButton.textContent = 'Full Stack';
+
+    // Hide all rows
+    document.querySelectorAll('.row[cat]').forEach(row => {
+        row.style.display = 'none';
+    });
+
+    // Show rows matching the default category and alternate styles
+    rows.forEach((row, index) => {
+        row.style.display = 'flex';
+        const paragraphs = row.querySelectorAll('.desc');
+        paragraphs.forEach(p => {
+            p.style.maxWidth = '66.67%'; // 2/3 of the parent width
+            if (index % 2 === 0) {
+                p.style.textAlign = 'left'; // Left alignment for even rows
+            } else {
+                p.style.textAlign = 'right'; // Right alignment for odd rows
+                p.style.marginLeft = 'auto'; // Align to the right
+            }
+        });
+        if (index % 2 === 0) {
+            // Left alignment for even rows
+            row.style.textAlign = 'left';
+            row.style.borderLeft = '1px solid wheat';
+            row.style.borderRight = 'none';
+        } else {
+            // Right alignment for odd rows
+            row.style.textAlign = 'right';
+            row.style.borderRight = '1px solid wheat';
+            row.style.borderLeft = 'none';
+        }
+    });
+});
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
