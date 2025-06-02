@@ -75,6 +75,29 @@
             display: block;
             vertical-align: middle;
         }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu-end {
+            right: 0 !important;
+            left: auto !important;
+            transform: none !important;
+        }
+
+        .dropdown-menu {
+            margin-top: 0;
+        }
+        .navbar .dropdown-menu {
+            max-width: calc(100vw - 2rem);
+            word-wrap: break-word;
+        }
+        @media (max-width: 991.98px) {
+        .dropdown-menu-end {
+            right: 1rem !important;
+        }
+}
     </style>
     
 </head>
@@ -96,7 +119,17 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="https://pschloss12.github.io/">Welcome</a>
                     <a class="nav-item nav-link" href="https://pschloss12.github.io/projects.html">Projects</a>
-                  </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Other
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenu2">
+                            <li><a class="dropdown-item" href="https://patrickschlosser.space/lucy_schlosser">Lucy Schlosser</a></li>
+                            <li><a class="dropdown-item" href="https://patrickschlosser.space/binarytree">Binary Tree</a></li>
+                            <li><a class="dropdown-item" href="https://patrickschlosser.space/answers">Answers</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -189,9 +222,9 @@
                         <span style="color: gainsboro;">
                             Find me on <a href="https://www.linkedin.com/in/patrick-schlosser/" style="color: wheat">LinkedIn</a>
                             <br>
-                            Contact me at <a style="color: wheat">pschloss@nd.edu</a>
+                            <!-- Contact me at <a style="color: wheat">pschloss@nd.edu</a> -->
                         </span>
-                        <br><br>
+                        <br>
                         <img src="images/PJS_Logo.png" alt="Patrick Schlosser" width="100" height="100">
                     </div>
             </div>
